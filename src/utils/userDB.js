@@ -1,11 +1,11 @@
 export const user = {
     username: "diego_m_otero",
-    password: "123456789",
-  };
+    password: "LADOV2021",
+}
   
-  export const userDetails = {
+export const userDetails = {
     username: "diego_m_otero",
     firstName: "Diego M",
     lastName: "Otero",
     email: "babelsolo@gmail.com",
-  };
+}

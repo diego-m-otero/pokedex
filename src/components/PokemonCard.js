@@ -15,11 +15,13 @@ export default function PokemonCard(props) {
     const { pokemon } = props
     const navigation  = useNavigation()
 
-    const pokemonColor = getColorByPokemonType(pokemon.type);
-    const bgStyles     = { backgroundColor: pokemonColor, ...styles.bgStyles };
+    const pokemonColor = getColorByPokemonType(pokemon.type)
+    const bgStyles     = { backgroundColor: pokemonColor, ...styles.bgStyles }
 
     const goToPokemon = () => {
-        navigation.navigate("Pokemon", { id: pokemon.id });
+        navigation.navigate("Pokemon", { id: pokemon.id })
+        // Datos planos, no se pueden funciones, objetos, componentes
+        // Solo clave valor, id texto
     }
 
     return (
