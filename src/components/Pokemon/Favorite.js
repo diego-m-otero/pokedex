@@ -9,46 +9,46 @@ export default function Favorite(props) {
     const [ reloadCheck, setReloadCheck ] = useState(false)
     const Icon = isFavorite ? FontAwesome : FontAwesome5
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await isPokemonFavoriteApi(id);
-        setIsFavorite(response);
-      } catch (error) {
-        setIsFavorite(false);
-      }
-    })();
-  }, [ id, reloadCheck ])
+    useEffect(() => {
+        (async () => {
+            try {
+                const response = await isPokemonFavoriteApi(id)
+                setIsFavorite(response)
+            } catch (error) {
+                setIsFavorite(false)
+            }
+        })()
+    }, [ id, reloadCheck ])
 
-  const onReloadCheckFavorite = () => {
-    setReloadCheck((prev) => !prev);
-  };
-
-  const addFavorite = async () => {
-    try {
-      await addPokemonFavoriteApi(id);
-      onReloadCheckFavorite();
-    } catch (error) {
-      console.log(error);
+    const onReloadCheckFavorite = () => {
+        setReloadCheck((prev) => !prev)
     }
-  };
 
-  const removeFavorite = async () => {
-    try {
-      await removePokemonFavoriteApi(id);
-      onReloadCheckFavorite();
-    } catch (error) {
-      console.log(error);
+    const addFavorite = async () => {
+        try {
+            await addPokemonFavoriteApi(id)
+            onReloadCheckFavorite()
+        } catch (error) {
+            console.log(error)
+        }
     }
-  };
 
-  return (
-    <Icon
-      name="heart"
-      color="#fff"
-      size={20}
-      onPress={isFavorite ? removeFavorite : addFavorite}
-      style={{ marginRight: 20 }}
-    />
-  );
+    const removeFavorite = async () => {
+        try {
+            await removePokemonFavoriteApi(id)
+            onReloadCheckFavorite()
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    return (
+        <Icon
+            name="heart"
+            color="#fff"
+            size={20}
+            onPress={isFavorite ? removeFavorite : addFavorite}
+            style={{ marginRight: 20 }}
+        />
+    )
 }
